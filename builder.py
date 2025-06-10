@@ -18,7 +18,7 @@ def clone_repo(repo_url, temp_dir):
     log("Клонирование завершено")
 
 def cleanup_repo(temp_dir, code_path):
-    log("Удаление лишних директорий в корне репозитория")
+    log("Удаление лишних директорий")
     abs_code_path = os.path.join(temp_dir, code_path)
     for item in os.listdir(temp_dir):
         item_path = os.path.join(temp_dir, item)
@@ -58,7 +58,7 @@ def create_archive(code_dir):
 def main():
     parser = argparse.ArgumentParser(description="Сборочный скрипт")
     parser.add_argument("repo_url", help="URL репозитория")
-    parser.add_argument("code_path", help="Относительный путь до исходного кода внутри репозитория")
+    parser.add_argument("code_path", help="Относительный путь исходного кода")
     parser.add_argument("version", help="Версия продукта")
 
     args = parser.parse_args()
